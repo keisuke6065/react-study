@@ -14,6 +14,8 @@ export const App = () => {
   return (<>
     <h1>{text}</h1>
     <h2>count: {count}</h2>
+    {/* replace button*/}
+    {/*<Button hoge={} hoge={}/>*/}
     <button onClick={countUp}>up</button>
     <button onClick={countDown}>down</button>
     <button onClick={cleanUp}>clean</button>
