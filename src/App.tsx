@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import {Button} from './components/Button'
 
 export const App = () => {
   const [count, setCount] = useState(0)
@@ -14,10 +15,8 @@ export const App = () => {
   return (<>
     <h1>{text}</h1>
     <h2>count: {count}</h2>
-    {/* replace button*/}
-    {/*<Button hoge={} hoge={}/>*/}
-    <button onClick={countUp}>up</button>
-    <button onClick={countDown}>down</button>
-    <button onClick={cleanUp}>clean</button>
+    <Button onClick={countUp} text={'up'}/>
+    <Button onClick={countDown} text={'down'}/>
+    <Button onClick={cleanUp} text={'clean'}/>
   </>)
 }
