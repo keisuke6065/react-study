@@ -1,6 +1,6 @@
 import {FC} from 'react'
 import styled from '@emotion/styled'
-import {css} from '@emotion/react/macro'
+import {css} from '@emotion/react'
 
 export type Props = {
   text: string
