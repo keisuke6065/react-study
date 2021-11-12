@@ -15,8 +15,8 @@ export const App = () => {
   return (<>
     <h1>{text}</h1>
     <h2>count: {count}</h2>
-    <Button onClick={countUp} text={'up'}/>
-    <Button onClick={countDown} text={'down'}/>
-    <Button onClick={cleanUp} text={'clean'}/>
+    <Button onClick={countUp} text={'up'} size={'large'}/>
+    <Button onClick={countDown} text={'down'} size={'medium'}/>
+    <Button onClick={cleanUp} text={'clean'} size={'small'}/>
   </>)
 }

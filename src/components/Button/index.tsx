@@ -1,23 +1,56 @@
 import {FC} from 'react'
-// import {ClickProps} from '../../../types/props'
+import styled from '@emotion/styled'
+import {css} from '@emotion/react/macro'
 
-export type Props =  {
+export type Props = {
   text: string
   onClick: () => unknown
+  size: Size
+  // add color props
 }
-// export type Props = Partial<ClickProps> & {
-//   text: string
-// }
+type Size = 'small' | 'medium' | 'large'
+// type Color = 'primary' | 'secondary'
+
+const selectSize = (size: Size) => {
+  const small = css`
+    font-size: 12px;
+    padding: 10px 16px;
+  `
+  const medium = css`
+    font-size: 14px;
+    padding: 11px 20px;
+  `
+  const large = css`
+    font-size: 16px;
+    padding: 12px 24px;
+  `
+  switch (size) {
+    case 'small':
+      return small
+    case 'medium':
+      return medium
+    case 'large':
+      return large
+    default:
+      return small
+  }
+}
+
+const StyledButton = styled.button<{size: Size}>`
+  border-radius: 3em;
+  white-space: nowrap;
+  background-color: #d9d9d9;
+  font-weight: 700;
+  line-height: 1;
+  color: #333;
+  ${({size}) => selectSize(size)}
+//  add select color
+`
 
 export const Button: FC<Props> = (props) => (
-  <button onClick={props.onClick}>
+  <StyledButton
+    onClick={props.onClick}
+    size={props.size}
+  >
     {props.text}
-  </button>)
-// export const Button: FC<Props> = ({text,onClick}) => (
-//   <button onClick={onClick}>
-//     {text}
-//   </button>)
-// export const Button: FC<Props> = ({children,onClick}) => (
-//   <button onClick={onClick}>
-//     {children}
-//   </button>)
+  </StyledButton>)
