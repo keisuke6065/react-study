@@ -7,9 +7,10 @@ export type Props = {
   onClick: () => unknown
   size: Size
   // add color props
+  color: Color
 }
 type Size = 'small' | 'medium' | 'large'
-// type Color = 'primary' | 'secondary'
+type Color = 'primary' | 'secondary'
 
 const selectSize = (size: Size) => {
   const small = css`
@@ -35,8 +36,33 @@ const selectSize = (size: Size) => {
       return small
   }
 }
+const selectColor = (color: Color) => {
+  const primary = css`
+    color: white;
+    background-color: #1ea7fd;
+    &:disabled {
+      background-color: #d9d9d9;
+      border-color: #d9d9d9;
+      color: #999;
+      cursor: not-allowed;
+    }
+  `
+  const secondary = css`
+    color: #333;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 0 0 1px inset;
+  `
+  switch (color) {
+    case 'primary':
+      return primary
+    case 'secondary':
+      return secondary
+    default:
+      return primary
+  }
+}
 
-const StyledButton = styled.button<{size: Size}>`
+const StyledButton = styled.button<{size: Size, color: Color}>`
   border-radius: 3em;
   white-space: nowrap;
   background-color: #d9d9d9;
@@ -44,13 +70,14 @@ const StyledButton = styled.button<{size: Size}>`
   line-height: 1;
   color: #333;
   ${({size}) => selectSize(size)}
-//  add select color
+  ${({color}) => selectColor(color)}
 `
 
 export const Button: FC<Props> = (props) => (
   <StyledButton
     onClick={props.onClick}
     size={props.size}
+    color={props.color}
   >
     {props.text}
   </StyledButton>)
