@@ -1,10 +1,9 @@
-import {atomsName} from '../../utils/stories'
 import {Heading, Props} from './index'
 import {Story} from '@storybook/react'
 
 
 const config = {
-  title: atomsName('Heading'),
+  title: 'atom/Heading',
   component: Heading,
   args: {
     text: 'Sample'
