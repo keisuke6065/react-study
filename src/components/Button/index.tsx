@@ -6,7 +6,6 @@ export type Props = {
   text: string
   onClick: () => unknown
   size: Size
-  // add color props
   color: Color
 }
 type Size = 'small' | 'medium' | 'large'
@@ -40,12 +39,6 @@ const selectColor = (color: Color) => {
   const primary = css`
     color: white;
     background-color: #1ea7fd;
-    &:disabled {
-      background-color: #d9d9d9;
-      border-color: #d9d9d9;
-      color: #999;
-      cursor: not-allowed;
-    }
   `
   const secondary = css`
     color: #333;
